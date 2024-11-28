@@ -11,12 +11,12 @@ describe("Testes para o CRUD de usuários", () => {
   it("Deve criar um novo usuário", async () => {
     const response = await request(app)
       .post("/usuarios")
-      .send({ nome: "Teste", email: "teste@example.com" });
+      .send({ nome: "Alexandre", email: "alexandre@gmail.com" });
 
     expect(response.statusCode).toBe(201);
     expect(response.body).toHaveProperty("id");
-    expect(response.body.nome).toBe("Teste");
-    expect(response.body.email).toBe("teste@example.com");
+    expect(response.body.nome).toBe("Alexandre");
+    expect(response.body.email).toBe("alexandre@gmail.com");
 
     idCriado = response.body.id; // Salva o ID para os próximos testes
   });
@@ -36,8 +36,8 @@ describe("Testes para o CRUD de usuários", () => {
 
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty("id", idCriado);
-    expect(response.body.nome).toBe("Teste");
-    expect(response.body.email).toBe("teste@example.com");
+    expect(response.body.nome).toBe("Alexandre");
+    expect(response.body.email).toBe("alexandre@gmail.com");
   });
 
   // Teste para atualizar um usuário
